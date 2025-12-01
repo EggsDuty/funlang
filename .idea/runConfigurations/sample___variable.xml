@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="sample - variable" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="edu.ktu.glang.app.Main" />
+    <module name="glang-2025" />
+    <option name="PROGRAM_PARAMETERS" value="samples/variable.glang" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="edu.ktu.funlang.app.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
