@@ -1,3 +1,13 @@
-integer a = 10
-decimal b = 2.5
-text msg = "Labas!"
+integer aInput = 3;
+decimal result = 0;  // Declare result variable
+
+FUNCTION Add(integer a, decimal b) {
+    decimal x = a + b;
+    RETURN x;
+}
+
+// This will: aInput(3) => Add(6) => Add(10) => result
+// Equivalent to: result = Add(Add(3, 6), 10)
+aInput => Add(6) => Add(10) => result;
+
+CONSOLE -> result;

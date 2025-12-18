@@ -6,11 +6,7 @@ import edu.ktu.funlang.semantics.rules.*;
 import java.util.*;
 
 /**
- * A light-weight semantic pass that:
- * - collects function signatures (names + arity)
- * - collects top-level variable declarations
- * - checks for obvious errors like duplicate function names and undefined variables in simple cases
- * This is intentionally conservative (no full type inference yet).
+ * A light-weight semantic pass that handles chaining expressions.
  */
 public class FunLangSemanticAnalyzer extends FunLangBaseVisitor<Void> {
 
@@ -42,6 +38,16 @@ public class FunLangSemanticAnalyzer extends FunLangBaseVisitor<Void> {
         }
         // second pass: deeper checks
         for (var s : ctx.statement()) visit(s);
+        return null;
+    }
+
+    @Override
+    public Void visitChainExpr(FunLangParser.ChainExprContext ctx) {
+        // Visit all expressions in the chain
+        for (var expr : ctx.binaryExpr()) {
+            visit(expr);
+        }
+
         return null;
     }
 
@@ -116,7 +122,6 @@ public class FunLangSemanticAnalyzer extends FunLangBaseVisitor<Void> {
         return null;
     }
 
-
     @Override
     public Void visitBasicExpr(FunLangParser.BasicExprContext ctx) {
         if (ctx.ID() != null) {
@@ -128,4 +133,3 @@ public class FunLangSemanticAnalyzer extends FunLangBaseVisitor<Void> {
         return visitChildren(ctx);
     }
 }
-

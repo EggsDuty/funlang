@@ -13,9 +13,14 @@ statement
     | returnStmt
     | systemCall
     | block
+    | chainStmt  // Add this
     ;
 
-// ---------------------- Declarations ----------------------
+// Add chain statement rule
+chainStmt
+    : chainExpr ';'
+    ;
+
 systemCall
     : CONSOLE '->' expr ';'
     ;
@@ -37,9 +42,8 @@ returnStmt
     ;
 
 exprStmt
-    : expr
+    : expr ';'
     ;
-
 
 // ---------------------- Control Flow ----------------------
 
@@ -54,7 +58,6 @@ whileStmt
 forStmt
     : FOR ID IN expr ':' expr ( STEP expr )? DO block
     ;
-
 
 // ---------------------- Functions ----------------------
 
@@ -78,29 +81,25 @@ argList
     : expr (',' expr)*
     ;
 
-
 // ---------------------- Expressions ----------------------
 
 expr
     : chainExpr
     ;
 
-// chaining operators: =>, <=, <=>
 chainExpr
     : binaryExpr ( chainOp binaryExpr )*
     ;
 
 chainOp
-    : '=>'
-    | '<='
-    | '<=>'
+    : '=>'      // Pass by value
+    | '<=>'     // Pass by reference
     ;
 
-// arithmetic & comparison
 binaryExpr
     : binaryExpr ('+'|'-') binaryExpr
     | binaryExpr ('*'|'/') binaryExpr
-    | binaryExpr ('<'|'>'|'=='|'!=' ) binaryExpr
+    | binaryExpr ('<'|'>'|'<='|'>='|'=='|'!=') binaryExpr
     | basicExpr
     ;
 
@@ -124,7 +123,6 @@ listLiteral
     : '[' (expr (',' expr)*)? ']'
     ;
 
-
 // ---------------------- Types ----------------------
 
 type
@@ -134,7 +132,6 @@ type
     | 'boolean'
     | 'list' '(' type ')'
     ;
-
 
 // ---------------------- Lexer ----------------------
 
