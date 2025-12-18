@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -90,7 +90,7 @@
                             <appendAssemblyId>false</appendAssemblyId>
                             <archive>
                                 <manifest>
-                                    <mainClass>edu.ktu.funlang.app.Main</mainClass>
+                                    <mainClass>edu.ktu.funlang.app.CompilerMain</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

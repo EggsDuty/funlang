@@ -1,2 +1,3 @@
-let x = 1;
-print(x);
+integer a = 10
+decimal b = 2.5
+text msg = "Labas!"

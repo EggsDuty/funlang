@@ -1,1 +1,41 @@
-print(42);
+
+integer a = 10;
+decimal b = 2.5;
+text msg = "Labas!";
+
+integer a2 = 9;
+CONSOLE -> MIN(a, a2);
+CONSOLE -> SQRT(a2);
+
+CONSOLE -> msg;
+CONSOLE -> b;
+CONSOLE -> a*b/2;
+
+IF a < 1 THEN {
+    CONSOLE -> "a lower than 1";
+}
+ELSE IF a < 10 THEN {
+    CONSOLE -> "a lower than 10";
+}
+ELSE {
+    CONSOLE -> "a bigger than or equal to 10";
+}
+
+FOR i IN 1:3 DO {
+  CONSOLE -> i;
+}
+
+integer counter = 0;
+WHILE counter <= 2 DO {
+  counter = counter + 1;
+  CONSOLE -> "While loop";
+}
+
+FUNCTION Add(integer a, decimal b) {
+    decimal x = a+b;
+    RETURN x;
+}
+CONSOLE -> Add(a,b);
+
+
+
