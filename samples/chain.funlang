@@ -1,0 +1,16 @@
+decimal aInput = 3;
+decimal result = 0;
+
+FUNCTION Add(decimal a, decimal b) {
+    decimal x = a + b;
+    RETURN x;
+}
+
+FUNCTION Sub(decimal a, decimal b) {
+    decimal x = a - b;
+    RETURN x;
+}
+
+aInput => Add(6) => Add(10.1) => Add(5) => Sub(3.6) => result;
+
+CONSOLE -> result;

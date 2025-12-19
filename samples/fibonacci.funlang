@@ -1,0 +1,36 @@
+// Rekursinė funkcija
+FUNCTION fibRec(integer n) {
+    IF n < 2 THEN {
+        RETURN n;
+    }
+    RETURN fibRec(n-1) + fibRec(n-2);
+}
+
+// Iteracinė funkcija
+FUNCTION fibIter(integer n) {
+    IF n < 2 THEN {
+        RETURN n;
+    }
+
+    integer a = 0;
+    integer b = 1;
+    integer temp = 0;
+
+    FOR i IN 2:n DO {
+        temp = a + b;
+        a = b;
+        b = temp;
+    }
+
+    RETURN b;
+}
+
+CONSOLE -> "Rekursinis";
+FOR i IN 0:10 DO {
+    CONSOLE -> "Fib(" + i + ") = " + fibRec(i);
+}
+
+CONSOLE -> "Iteratyvus";
+FOR i IN 0:10 DO {
+    CONSOLE -> "Fib(" + i + ") = " + fibIter(i);
+}

@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "SAMPLE_FILE=samples\variable.funlang"
+set "SAMPLE_FILE=samples\chain.funlang"
 set "OUTPUT_DIR=out"
 set "JAR_FILE=target\funlang-2025-1.0.jar"
 
